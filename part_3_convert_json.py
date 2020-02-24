@@ -42,7 +42,7 @@ def convert_json_to_level(level_json):
 			traps = []
 			# Iterate over the list of trap coordinates...
 			for coords in field_json["value"]:
-				traps.append(CCTrapControl(coords[0], coords[1], coords[2], coords[3]))
+				traps.append(ccc.CCTrapControl(coords[0], coords[1], coords[2], coords[3]))
 			# then add them to the field.
 			traps = ccc.CCTrapControlsField(traps)
 			
@@ -51,7 +51,7 @@ def convert_json_to_level(level_json):
 			machines = []
 			# Iterate over the list of machine coordinates...
 			for coords in field_json["value"]:
-				machines.append(CCCloningMachineControl(coords[0], coords[1], coords[2], coords[3]))
+				machines.append(ccc.CCCloningMachineControl(coords[0], coords[1], coords[2], coords[3]))
 			# then add them to the field.
 			machines = ccc.CCCloningMachineControlsField(traps)
 			
@@ -68,7 +68,7 @@ def convert_json_to_level(level_json):
 			monsters = []
 			# Iterate over the list of monster coordinates...
 			for coords in field_json["value"]:
-				monsters.append(CCCoordinate(coords[0], coords[1]))
+				monsters.append(ccc.CCCoordinate(coords[0], coords[1]))
 			# then add them to the field.
 			field = ccc.CCMonsterMovementField(monsters)
 		
