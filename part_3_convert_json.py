@@ -24,7 +24,6 @@ def convert_json_to_level_pack(json_data):
 def convert_json_to_level(level_json):
 	level = ccc.CCLevel()
 	
-	print(level_json)
 	level.level_number = level_json["level_number"]
 	level.time = level_json["time"]
 	level.num_chips = level_json["num_chips"]
@@ -85,14 +84,14 @@ def convert_json_to_level(level_json):
 def convert_level(filepath):
 	print("Reading JSON data...")
 	json_data = read_level_pack_json(filepath)
-	print(json_data)
+	#print(json_data)
 	
 	print("Converting JSON data to level pack...")
 	level_pack = convert_json_to_level_pack(json_data)
-	print(level_pack)
+	#print(level_pack)
 	
 	dat_filepath = filepath.replace(".json", ".dat")
-	print("Writing level pack to", dat_filepath)
+	print("Writing level pack to ", dat_filepath, "...", sep="")
 	ccdu.write_cc_level_pack_to_dat(level_pack, dat_filepath)
 	
 	print("Writing .dac file...")
@@ -102,7 +101,7 @@ def convert_level(filepath):
 	print("Done.")
 
 def main():
-	convert_level("data/test_level.json")
+	convert_level("data/jhfische_cc1.json")
 	#cc_level_pack = ccdu.make_cc_level_pack_from_dat("data/pfgd_test.dat")
 	#ccdu.write_cc_level_pack_to_dat(cc_level_pack, "data/TEST.dat")
 
