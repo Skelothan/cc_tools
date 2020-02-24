@@ -96,7 +96,7 @@ def convert_level(filepath):
 	
 	print("Writing .dac file...")
 	with open(filepath.replace(".json", ".dac"), "w") as dacfile:
-		dacfile.write("file=" + dat_filepath.split("/")[-1] + "\nruleset=ms\n")
+		dacfile.write("file=" + dat_filepath.split("/")[-1] + "\nruleset=ms\nlastlevel=" + str(len(level_pack.levels)) + "\n")
 		
 	print("Done.")
 
