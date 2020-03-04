@@ -28,7 +28,8 @@ def convert_json_to_level(level_json):
 	level.time = level_json["time"]
 	level.num_chips = level_json["num_chips"]
 	level.upper_layer = level_json["upper_layer"]
-	level.lower_layer = level_json["lower_layer"]
+	try: level.lower_layer = level_json["lower_layer"]
+	except KeyError: level.lower_layer = [0 for i in range(1024)]
 	
 	# Iterate over all optional fields and create appropriate CCFields.
 	for field_json in level_json["optional_fields"]:
@@ -99,6 +100,6 @@ def convert_level(filepath):
 	print("Done.")
 
 def main():
-	convert_level("data/jhfische_cc1.json")
+	convert_level("data/jhfische_cc_level_data.json")
 
 main()
